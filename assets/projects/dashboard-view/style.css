@@ -1,0 +1,312 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    display: flex;
+}
+
+.sidebar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 6.6rem;
+    min-height: 100vh;
+    padding: 0 1.7rem;
+    color: #fff;
+    /* overflow: hidden; */
+    transition: all 0.5s linear;
+    background: rgba(113, 99, 186, 255);
+}
+
+.sidebar:hover {
+    width: 15rem;
+    transition: 0.5s;
+}
+
+.logo {
+    height: 5rem;
+    padding: 1rem;
+}
+
+.menu {
+    height: 88%;
+    position: relative;
+    list-style: none;
+    padding: 0;
+}
+
+.menu li {
+    padding: 1rem;
+    margin: 0.5rem 0;
+    border-radius: 0.5rem;
+    transition: all 0.5s ease-in-out;
+}
+
+.menu li:hover, 
+.active{
+    background: #e0e0e058;
+}
+
+.menu a {
+    color: white;
+    font-size: 0.875rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.menu a span {
+    overflow: hidden;
+}
+
+.menu a i {
+    font-size: 1.2rem;
+}
+
+.logout {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+/* **** main body section **** */
+.main--content {
+    position: relative;
+    background: #ebe9e9;
+    width: 100%;
+    padding: 1rem;
+}
+
+.header--wrapper img {
+   width: 3.125rem;
+   height: 3.125rem; 
+   border-radius: 50%;
+}
+
+.header--wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: #fff;
+    border-radius: 0.625rem;
+    padding: 0.625rem 2rem;
+    margin-bottom: 1rem;
+}
+
+.header--title {
+    color: rgba(113, 99, 186, 255);
+}
+
+.user--info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.search--box {
+    background: rgb(237, 237 , 237);
+    border-radius: 1rem;
+    color: rgba(113, 99, 186, 255);
+    display: flex;
+    align-items: center;
+    gap: 0.3125rem;
+    padding: 0.25rem 0.75rem;
+}
+
+.search--box input {
+    background-color: transparent;
+    padding: 0.625rem;
+}
+
+.search--box i {
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.5s ease-out;
+}
+
+.search--box i:hover {
+    transform: scale(1.2);
+}
+
+/* **** card container **** */
+
+.card--container {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 0.625rem;
+}
+
+.card--wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.main--title {
+    color: rgba(113, 99, 186, 255);
+    padding-bottom: 0.625rem;
+    font: 1rem;
+}
+
+.payment--card {
+    background: rgb(229, 223, 223);
+    border-radius: 0.625rem;
+    padding: 1.2rem;
+    width: 18.125rem;
+    height: 9rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.5s ease-in-out;
+}
+
+.payment--card:hover {
+    transform: translateY(-0.3rem);
+}
+
+.card--header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.25rem;
+}
+
+.amount {
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    font-size: 0.75rem;
+    font-weight: 200;
+}
+
+.amount--value {
+    font-size: 1.5rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+}
+
+.icon {
+    color: #fff;
+    padding: 1rem;
+    height: 3.75rem;
+    width: 3.75rem;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    background: red;
+}
+
+.card--detail {
+    font-size: 1.125rem;
+    color: #777777;
+    font-family: 'Courier New', Courier, monospace;
+    letter-spacing: 0.125rem;
+}
+
+/* color css */
+.light-red {
+    background: rgb(251, 233, 233);
+}
+
+.light-purple {
+    background: rgb(254, 226, 254);
+}
+
+.light-green {
+    background: rgb(235, 254, 235);
+}
+
+.light-blue {
+    background: rgb(236, 236, 254);
+}
+
+.dark-red {
+    background: red;
+}
+
+.dark-purple {
+    background: purple;
+}
+
+.dark-green {
+    background: green;
+}
+
+.dark-blue {
+    background: blue;
+}
+
+/* **** tabluar section **** */
+.tabular--wrapper {
+    background: #fff;
+    margin-top: 1rem;
+    border-radius: 0.625rem;
+    padding: 2rem;
+}
+
+.table-container {
+    width: 100%;
+}
+
+table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background: rgba(113, 99, 186, 255);
+    color: #fff;
+}
+
+th {
+    padding: 1rem;
+    text-align: left;
+    font-size: 1.4vw;
+}
+
+tbody {
+    background: #f2f2f2;
+}
+
+td {
+    padding: 1rem;
+    font-size: 1.5vw;
+    color: #333;
+}
+
+tr:nth-child(even) {
+    background: #fff;
+}
+
+tfoot {
+    background: rgba(113, 99, 186, 255);
+    font-weight: bold;
+    color: #fff;
+}
+
+tfoot td {
+    padding: 1rem;
+    color: #fff;
+}
+
+.table-container button {
+    color: green;
+    background: none;
+    cursor: pointer;
+    /* font-size: 1.3vw; */
+}

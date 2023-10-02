@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kanban Board</title>
+    <link rel="stylesheet" href="./styles.base.css">
+    <link rel="stylesheet" href="./styles.element.css">
+    <link rel="stylesheet" href="./styles.header.css">
+    <link rel="stylesheet" href="./styles.lanes.css">
+    <link rel="stylesheet" href="./styles.task.css">
+    <link rel="stylesheet" href="./styles.progress.css">
+    <link rel="stylesheet" href="./styles.targets.css">
+    <link rel="stylesheet" href="./styles.nav.css">
+    <link rel="stylesheet" href="./styles.theme.css">
+</head>
+<body class="theme-coronary-dream">
+    <main >
+        <nav>
+            <img src="./assets/icons/logo-abletonlink-svgrepo-com (1).svg" alt="" width="64" height="64">
+
+            <ul class="nav-items">
+                <li class="nav-item nav-item--active">
+                    <a href="#" class="nav-item__link">
+                        <div class="nav-item__icon">
+                            <img src="./assets/icons/board-svgrepo-com.svg" alt="" width="32" height="32">
+                        </div>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-item__link">
+                        <div class="nav-item__icon">
+                            <img src="./assets/icons/note-edit-svgrepo-com.svg" alt="" width="32" height="32">
+                        </div>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-item__link">
+                        <div class="nav-item__icon">
+                            <img src="./assets/icons/chart-pie-svgrepo-com.svg" alt="" width="32" height="32">
+                        </div>
+                    </a>
+                </li>
+
+                <li class="nav-item hi hi--attention">
+                    <a href="#" class="nav-item__link">
+                        <div class="nav-item__icon">
+                            <img src="./assets/icons/chat-conversation-circle-svgrepo-com.svg" alt="" width="32" height="32">
+                        </div>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-item__link">
+                        <div class="nav-item__icon">
+                            <img src="./assets/icons/database-svgrepo-com.svg" alt="" width="32" height="32">
+                        </div>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-item__link">
+                        <div class="nav-item__icon">
+                            <img src="./assets/icons/cube-svgrepo-com.svg" alt="" width="32" height="32">
+                        </div>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-item__link">
+                        <div class="nav-item__icon">
+                            <img src="./assets/icons/nut-bold-svgrepo-com.svg" alt="" width="32" height="32">
+                        </div>
+                    </a>
+                </li>
+
+            </ul>
+        </nav>
+
+        <header class="header">
+            <h1>Kanban Board</h1>
+            <a href="#" class="action">
+                <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 6V18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M6 12H18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+
+            <a href="#" class="action">
+                <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 4H4L9.6 11.4667C9.85964 11.8129 10 12.2339 10 12.6667V20L14 18V12.6667C14 12.2339 14.1404 11.8129 14.4 11.4667L20 4Z" stroke="currentColor" stroke-linejoin="round" stroke-width="2"/>
+                </svg>
+            </a>
+
+            <a href="#" class="action">
+                <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4 5C4 4.44772 4.44772 4 5 4H11.1716C11.4368 4 11.6911 4.10536 11.8787 4.29289L19.8787 12.2929C20.2692 12.6834 20.2692 13.3166 19.8787 13.7071L13.7071 19.8787C13.3166 20.2692 12.6834 20.2692 12.2929 19.8787L4.29289 11.8787C4.10536 11.6911 4 11.4368 4 11.1716V5ZM5 2C3.34315 2 2 3.34315 2 5L2 11.1716C2 11.9672 2.31607 12.7303 2.87868 13.2929L10.8787 21.2929C12.0503 22.4645 13.9497 22.4645 15.1213 21.2929L21.2929 15.1213C22.4645 13.9497 22.4645 12.0503 21.2929 10.8787L13.2929 2.87868C12.7303 2.31607 11.9672 2 11.1716 2H5ZM8 10C9.10457 10 10 9.10457 10 8C10 6.89543 9.10457 6 8 6C6.89543 6 6 6.89543 6 8C6 9.10457 6.89543 10 8 10Z" stroke="currentColor" stroke-width="1.5"/>
+                </svg>
+            </a>
+
+            <a href="#" class="action" id="theme-toggle">
+                <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="https://www.w3.org/2000/svg">
+                    <path class="theme theme-1" d="M9.5 14C11.9853 14 14 11.9853 14 9.5C14 7.01472 11.9853 5 9.5 5C7.01472 5 5 7.01472 5 9.5C5 11.9853 7.01472 14 9.5 14Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    <path class="theme theme-2" d="M22.5 14C24.9853 14 27 11.9853 27 9.5C27 7.01472 24.9853 5 22.5 5C20.0147 5 18 7.01472 18 9.5C18 11.9853 20.0147 14 22.5 14Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin />
+                    <path class="theme theme-4" d="M9.5 27C11.9853 27 14 24.9853 14 22.5C14 20.0147 11.9853 18 9.5 18C7.01472 18 5 20.0147 5 22.5C5 24.9853 7.01472 27 9.5 27Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    <path class="theme theme-3" d="M22.5 27C24.9853 27 27 24.9853 27 22.5C27 20.0147 24.9853 18 22.5 18C20.0147 18 18 20.0147 18 22.5C18 24.9853 20.0147 27 22.5 27Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+
+            </a>
+        </header>
+
+        <div class="lanes">
+            <article class="lane">
+                <header class="lane__header">
+                    <em>10</em>
+                    <h2>Backlog</h2>
+                    <a href="#" class="action">
+                        <svg width="16px" height="16px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g id="Edit / Sort_Descending">
+                                <path id="Vector" d="M4 17H16M4 12H13M4 7H10M18 13V5M18 5L21 8M18 5L15 8" stroke="#AAA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </g>
+                        </svg>
+                    </a>
+                </header>
+                <div class="lane__tasks">
+
+                    <section class="task">
+                        <header>
+                            <h3>Form Elements</h3>
+                            <a href="#" class="action">
+                                <img src="./assets/icons/pencil-svgrepo-com.svg" alt="" width="16" height="16">
+                            </a>
+                        </header>
+                        <div class="task__body">
+                            <small>Covenant Design System</small>
+
+                            <div class="task__indicators">
+                                <time class="deadline hi--positive" datetime="2022-12-13">
+                                    in 4 weeks
+                                </time>
+                                <data class="priority hi--attention" value="2">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    Medium
+                                </data>
+                            </div>
+
+                            <dl class="task__meta-data">
+                                <dt>
+                                    <img src="./assets/icons/clock-circle-svgrepo-com.svg" alt="" width="16" height="16">
+                                </dt>
+                                <dd>
+                                    12&nbsp;<small>h estimated</small>
+                                </dd>
+                            </dl>
+
+                            <dl class="task__meta-data">
+                                <dt>
+                                    <img src="./assets/icons/chat-svgrepo-com.svg" alt="" width="16" height="16">
+                                </dt>
+                                <dd>
+                                    3
+                                </dd>
+                                
+                                <dt>
+                                    <img src="./assets/icons/file-text-svgrepo-com.svg" alt="" width="16" height="16">
+                                </dt>
+                                <dd>
+                                    6
+                                </dd>
+                                
+                                <dt>
+                                    <img src="./assets/icons/chain-for-links-svgrepo-com.svg" alt="" width="16" height="16">
+                                </dt>
+                                <dd>
+                                    0
+                                </dd>
+                               
+                            </dl>
+                            
+                            <ul class="tag-list">
+                                <li>busywork</li>
+                                <li>inspiration</li>
+                            </ul>
+
+                        </div>
+                    </section>
+
+                    <section class="task">
+                        <header>
+                            <h3>Dropdown Styling</h3>
+                            <a href="#" class="action">
+                                <img src="./assets/icons/pencil-svgrepo-com.svg" alt="" width="16" height="16">
+                            </a>
+                        </header>
+                        <div class="task__body">
+                            <small>Covenant Design System</small>
+
+                            <div class="task__indicators">
+                                <time class="deadline hi--muted" datetime="2022-12-13">
+                                    in 8 weeks
+                                </time>
+                                <data class="priority hi--negative" value="3">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    High
+                                </data>
+                            </div>
+
+                            <dl class="task__meta-data">
+                                <dt>
+                                    <img src="./assets/icons/clock-circle-svgrepo-com.svg" alt="" width="16" height="16">
+                                </dt>
+                                <dd>
+                                    12&nbsp;<small>h estimated</small>
+                                </dd>
+                            </dl>
+
+                            <dl class="task__meta-data">
+                                <dt>
+                                    <img src="./assets/icons/chat-svgrepo-com.svg" alt="" width="16" height="16">
+                                </dt>
+                                <dd>
+                                    0
+                                </dd>
+                                
+                                <dt>
+                                    <img src="./assets/icons/file-text-svgrepo-com.svg" alt="" width="16" height="16">
+                                </dt>
+                                <dd>
+                                    4
+                                </dd>
+                                
+                                <dt>
+                                    <img src="./assets/icons/chain-for-links-svgrepo-com.svg" alt="" width="16" height="16">
+                                </dt>
+                                <dd>
+                                    1
+                                </dd>
+                               
+                            </dl>
+                            
+                            <ul class="tag-list">
+                                <li>focuswork</li>
+                                <li>css</li>
+                                <li>js</li>
+                            </ul>
+
+                        </div>
+                    </section>
+
+                    <section class="task">
+                        <header>
+                            <h3>Optimize Performance</h3>
+                            <a href="#" class="action">
+                                <img src="./assets/icons/pencil-svgrepo-com.svg" alt="" width="16" height="16">
+                            </a>
+                        </header>
+                        <div class="task__body">
+                            <small>Luinous Landing Page</small>
+
+                            <div class="task__indicators">
+                                <time class="deadline hi--muted" datetime="2022-12-13">
+                                    in 12 weeks
+                                </time>
+                                <data class="priority hi--neutral" value="1">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    Low
+                                </data>
+                            </div>
+
+                            <dl class="task__meta-data">
+                                <dt>
+                                    <img src="./assets/icons/clock-circle-svgrepo-com.svg" alt="" width="16" height="16">
+                                </dt>
+                                <dd>
+                                    4&nbsp;<small>h estimated</small>
+                                </dd>
+                            </dl>
+
+                            <dl class="task__meta-data">
+                                <dt>
+                                    <img src="./assets/icons/chat-svgrepo-com.svg" alt="" width="16" height="16">
+                                </dt>
+                                <dd>
+                                    2
+                                </dd>
+                                
+                                <dt>
+                                    <img src="./assets/icons/file-text-svgrepo-com.svg" alt="" width="16" height="16">
+                                </dt>
+                                <dd>
+                                    2
+                                </dd>
+                                
+                                <dt>
+                                    <img src="./assets/icons/chain-for-links-svgrepo-com.svg" alt="" width="16" height="16">
+                                </dt>
+                                <dd>
+                                    0
+                                </dd>
+                               
+                            </dl>
+                            
+                            <ul class="tag-list">
+                                <li>focuswork</li>
+                                <li>css</li>
+                                <li>js</li>
+                            </ul>
+
+                        </div>
+                    </section>
+
+                </div>
+            </article>
+
+            <article class="lane">
+                <header class="lane__header">
+                    <em>8</em>
+                    <h2>Blocked</h2>
+                    <a href="#" class="action">
+                        <svg width="16px" height="16px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g id="Edit / Sort_Descending">
+                                <path id="Vector" d="M4 17H16M4 12H13M4 7H10M18 13V5M18 5L21 8M18 5L15 8" stroke="#AAA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </g>
+                        </svg>
+                    </a>
+                </header>
+                <div class="lane__tasks">
+
+                    <section class="task">
+                        <header>
+                            <h3>Adapt Text Contrast</h3>
+                            <a href="#" class="action">
+                                <img src="./assets/icons/pencil-svgrepo-com.svg" alt="" width="16" height="16">
+                            </a>
+                        </header>
+                        <div class="task__body">
+                            <small>mo:diff Compare</small>
+
+                            <div class="task__indicators">
+                                <time class="deadline hi--positive" datetime="2022-12-13">
+                                    in 2 weeks
+                                </time>
+                                <data class="priority hi--negative" value="3">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    High
+                                </data>
+                            </div>
+
+                            <dl class="task__meta-data">
+                                <dt>
+                                    <img src="./assets/icons/warning-circle-svgrepo-com.svg" alt="" width="16" height="16">
+                                </dt>
+                                <dd>
+                                    Missing client feedback
+                                </dd>
+                            </dl>
+
+                            <dl class="task__meta-data">
+                                <dt>
+                                    <img src="./assets/icons/chat-svgrepo-com.svg" alt="" width="16" height="16">
+                                </dt>
+                                <dd>
+                                    6
+                                </dd>
+                                
+                                <dt class="hi hi--attention">
+                                    <img src="./assets/icons/file-text-svgrepo-com.svg" alt="" width="16" height="16">
+                                </dt>
+                                <dd>
+                                    8
+                                </dd>
+                                
+                                <dt>
+                                    <img src="./assets/icons/chain-for-links-svgrepo-com.svg" alt="" width="16" height="16">
+                                </dt>
+                                <dd>
+                                    4
+                                </dd>
+                               
+                            </dl>
+                            
+                            <ul class="tag-list">
+                                <li>busywork</li>
+                                <li>inspiration</li>
+                            </ul>
+
+                        </div>
+                    </section>
+
+                    <section class="task">
+                        <header>
+                            <h3>Rework Landing Page</h3>
+                            <a href="#" class="action">
+                                <img src="./assets/icons/pencil-svgrepo-com.svg" alt="" width="16" height="16">
+                            </a>
+                        </header>
+                        <div class="task__body">
+                            <small>spinly Web Page</small>
+
+                            <div class="task__indicators">
+                                <time class="deadline hi--neutral" datetime="2022-12-13">
+                                    due today
+                                </time>
+                                <data class="priority hi-negative" value="1">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    Low
+                                </data>
+                            </div>
+
+                            <dl class="task__meta-data">
+                                <dt>
+                                    <img src="./assets/icons/warning-circle-svgrepo-com.svg" alt="" width="16" height="16">
+                                </dt>
+                                <dd>
+                                    Visuals not ready
+                                </dd>
+                            </dl>
+
+                            <dl class="task__meta-data">
+                                <dt>
+                                    <img src="./assets/icons/chat-svgrepo-com.svg" alt="" width="16" height="16">
+                                </dt>
+                                <dd>
+                                    6
+                                </dd>
+                                
+                                <dt>
+                                    <img src="./assets/icons/file-text-svgrepo-com.svg" alt="" width="16" height="16">
+                                </dt>
+                                <dd>
+                                    12
+                                </dd>
+                                
+                                <dt class="hi hi--attention">
+                                    <img src="./assets/icons/chain-for-links-svgrepo-com.svg" alt="" width="16" height="16">
+                                </dt>
+                                <dd>
+                                    12
+                                </dd>
+                               
+                            </dl>
+                            
+                            <ul class="tag-list">
+                                <li>focuswork</li>
+                                <li>css</li>
+                                <li>js</li>
+                            </ul>
+
+                        </div>
+                    </section>
+
+                    <section class="task hi hi--negative">
+                        <header>
+                            <h3>Fix Foxus Behaviour</h3>
+                            <a href="#" class="action">
+                                <img src="./assets/icons/pencil-svgrepo-com.svg" alt="" width="16" height="16">
+                            </a>
+                        </header>
+                        <div class="task__body">
+                            <small>TZY Signup Form</small>
+
+                            <div class="task__indicators">
+                                <time class="deadline hi--negative hi--strong" datetime="2022-12-13">
+                                    1 day overdue
+                                </time>
+                                <data class="priority hi--neutral" value="1">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    Low
+                                </data>
+                            </div>
+
+                            <dl class="task__meta-data">
+                                <dt>
+                                    <img src="./assets/icons/warning-circle-svgrepo-com.svg" alt="" width="16" height="16">
+                                </dt>
+                                <dd>
+                                    Issues with dropdown
+                                </dd>
+                            </dl>
+
+                            <dl class="task__meta-data">
+                                <dt>
+                                    <img src="./assets/icons/chat-svgrepo-com.svg" alt="" width="16" height="16">
+                                </dt>
+                                <dd>
+                                    5
+                                </dd>
+                                
+                                <dt>
+                                    <img src="./assets/icons/file-text-svgrepo-com.svg" alt="" width="16" height="16">
+                                </dt>
+                                <dd>
+                                    1
+                                </dd>
+                                
+                                <dt class="hi hi--attention">
+                                    <img src="./assets/icons/chain-for-links-svgrepo-com.svg" alt="" width="16" height="16">
+                                </dt>
+                                <dd>
+                                    1
+                                </dd>
+                               
+                            </dl>
+                            
+                            <ul class="tag-list">
+                                <li>focuswork</li>
+                                <li>css</li>
+                                <li>js</li>
+                            </ul>
+
+                        </div>
+                    </section>
+
+                </div>
+            </article>
+
+            <article class="lane">
+                <header class="lane__header">
+                    <em>4</em>
+                    <h2>In Progress</h2>
+                    <a href="#" class="action">
+                        <svg width="16px" height="16px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path id="Vector" d="M4 17H16M4 12H13M4 7H10M18 13V5M18 5L21 8M18 5L15 8" stroke="#AAA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </header>
+                <div class="lane__tasks">
+
+                    <section class="task">
+                        <header>
+                            <h3>Setup Production System</h3>
+                            <a href="#" class="action">
+                                <img src="./assets/icons/pencil-svgrepo-com.svg" alt="" width="16" height="16">
+                            </a>
+                        </header>
+                        <div class="task__body">
+                            <small>Dreamcatcher Sleep Tracker</small>
+
+                            <div class="task__indicators">
+                                <time class="deadline hi--neutral" datetime="2022-12-13">
+                                    due today
+                                </time>
+                                <data class="priority hi--negative" value="3">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    High
+                                </data>
+                            </div>
+
+                            <div class="task__progress progress">
+                                <ul class="progress__details">
+                                    <li>75<small> %</small></li>
+                                    <li>12<small> h spent</small></li>
+                                    <li>24<small> h estimated</small></li>
+                                </ul>
+
+                                <div class="progress__bar" style="--value: 75;"></div>
+                            </div>
+
+                            <dl class="task__meta-data">
+                                <dt class="hi hi--attention">
+                                    <img src="./assets/icons/chat-svgrepo-com.svg" alt="" width="16" height="16">
+                                </dt>
+                                <dd>
+                                    4
+                                </dd>
+                                
+                                <dt>
+                                    <img src="./assets/icons/file-text-svgrepo-com.svg" alt="" width="16" height="16">
+                                </dt>
+                                <dd>
+                                    1
+                                </dd>
+                                
+                                <dt>
+                                    <img src="./assets/icons/chain-for-links-svgrepo-com.svg" alt="" width="16" height="16">
+                                </dt>
+                                <dd>
+                                    6
+                                </dd>
+                               
+                            </dl>
+                            
+                            <ul class="tag-list">
+                                <li>hosting</li>
+                                <li>docs</li>
+                                <li>hypercare</li>
+                            </ul>
+
+                        </div>
+                    </section>
+
+                    <section class="task">
+                        <header>
+                            <h3>Update Dependencies</h3>
+                            <a href="#" class="action">
+                                <img src="./assets/icons/pencil-svgrepo-com.svg" alt="" width="16" height="16">
+                            </a>
+                        </header>
+                        <div class="task__body">
+                            <small>head.space idea manager</small>
+
+                            <div class="task__indicators">
+                                <time class="deadline hi--attention" datetime="2022-12-13">
+                                    in 5 days
+                                </time>
+                                <data class="priority hi--attention" value="2">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    Medium
+                                </data>
+                            </div>
+
+                            <div class="task__progress progress">
+                                <ul class="progress__details">
+                                    <li>20<small> %</small></li>
+                                    <li>2<small> h spent</small></li>
+                                    <li>10<small> h estimated</small></li>
+                                </ul>
+
+                                <div class="progress__bar" style="--value: 20;"></div>
+                            </div>
+
+                            <dl class="task__meta-data">
+                                <dt class="hi hi--attention">
+                                    <img src="./assets/icons/chat-svgrepo-com.svg" alt="" width="16" height="16">
+                                </dt>
+                                <dd>
+                                    9
+                                </dd>
+                                
+                                <dt>
+                                    <img src="./assets/icons/file-text-svgrepo-com.svg" alt="" width="16" height="16">
+                                </dt>
+                                <dd>
+                                    11
+                                </dd>
+                                
+                                <dt>
+                                    <img src="./assets/icons/chain-for-links-svgrepo-com.svg" alt="" width="16" height="16">
+                                </dt>
+                                <dd>
+                                    4
+                                </dd>
+                               
+                            </dl>
+                            
+                            <ul class="tag-list">
+                                <li>security</li>
+                                <li>testing</li>
+                                <li>compat</li>
+                            </ul>
+
+                        </div>
+                    </section>
+
+                    <section class="task">
+                        <header>
+                            <h3>Replace Key Visual</h3>
+                            <a href="#" class="action">
+                                <img src="./assets/icons/pencil-svgrepo-com.svg" alt="" width="16" height="16">
+                            </a>
+                        </header>
+                        <div class="task__body">
+                            <small>Convenant Design System</small>
+
+                            <div class="task__indicators">
+                                <time class="deadline hi--attention" datetime="2022-12-13">
+                                    in 2 days
+                                </time>
+                                <data class="priority hi--muted" value="3">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    None
+                                </data>
+                            </div>
+
+                            <div class="task__progress progress">
+                                <ul class="progress__details">
+                                    <li>50<small> %</small></li>
+                                    <li>1<small> h spent</small></li>
+                                    <li>10<small> h estimated</small></li>
+                                </ul>
+
+                                <div class="progress__bar" style="--value: 50;"></div>
+                            </div>
+
+                            <dl class="task__meta-data">
+                                <dt>
+                                    <img src="./assets/icons/chat-svgrepo-com.svg" alt="" width="16" height="16">
+                                </dt>
+                                <dd>
+                                    0
+                                </dd>
+                                
+                                <dt class="hi hi--attention">
+                                    <img src="./assets/icons/file-text-svgrepo-com.svg" alt="" width="16" height="16">
+                                </dt>
+                                <dd>
+                                    1
+                                </dd>
+                                
+                                <dt>
+                                    <img src="./assets/icons/chain-for-links-svgrepo-com.svg" alt="" width="16" height="16">
+                                </dt>
+                                <dd>
+                                    0
+                                </dd>
+                               
+                            </dl>
+                            
+                            <ul class="tag-list">
+                                <li>visuals</li>
+                                <li>simple</li>
+                                <li>nobrainer</li>
+                            </ul>
+
+                        </div>
+                    </section>
+
+                </div>
+            </article>
+
+        </div>
+
+        <div class="targets">
+
+            <section class="target">
+                <header>
+                    <h2>Today</h2>
+                </header>
+                <div class="target__indicator">
+                    <div class="target__indicator-counter">
+                        1
+                    </div>
+                    <img src="./assets/icons/sun-2-svgrepo-com.svg" alt="" width="32" height="32">
+                </div>
+            </section>
+
+            <section class="target">
+                <header>
+                    <h2>Done</h2>
+                </header>
+                <div class="target__indicator">
+                    <div class="target__indicator-counter">
+                        4
+                    </div>
+                    <img src="./assets/icons/check-svgrepo-com.svg" alt="" width="32" height="32">
+                </div>
+            </section>
+
+            <section class="target">
+                <header>
+                    <h2>Trash</h2>
+                </header>
+                <div class="target__indicator">
+                    <div class="target__indicator-counter">
+                        4
+                    </div>
+                    <img src="./assets/icons/trash-svgrepo-com.svg" alt="" width="32" height="32">
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <!-- time: 21:30 -->
+
+
+    <script type="module" src="./app.js"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+.theme-coronary-dream {
+    --bg-graphic: url('./assets/images/blue-g429c45a87_1920.jpg');
+}
+
+.theme-liquid-crystal {
+    --bg-graphic: url('./assets/images/ice-g7269d1913_1920.jpg');
+}
+
+.theme-path-finder {
+    --bg-graphic: url('./assets/images/path-gf84e44dc2_1920.jpg');
+}
+
+.theme-chroma-file {
+    --bg-graphic: url('./assets/images/cartoon-gcf1a94929_1920.jpg');
+}
+
+.theme {
+    transition: var(--tr-default);
+    transition-property: fill;
+}
+
+.theme-active {
+    fill: rgba(var(--hi-primary-rgb), 0.5);
+}
