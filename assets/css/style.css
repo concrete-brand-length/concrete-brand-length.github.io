@@ -140,6 +140,12 @@ img {
     position: relative;
 }
 
+
+#phone {
+    white-space: nowrap;
+    line-height: 4em;
+}
+
 .link-custom::after {
     content: "";
     width: 0%;
